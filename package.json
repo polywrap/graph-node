@@ -1,8 +1,6 @@
 {
-  "name": "graph-node-wasm-rs",
   "description": "A Polywrap Wasm wrapper for Subgraph queries",
   "private": true,
-  "version": "0.4.0",
   "scripts": {
     "reset": "yarn clean && yarn && yarn build",
     "clean": "npx rimraf ./node_modules ./build ./src/wrap",
