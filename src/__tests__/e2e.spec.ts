@@ -1,6 +1,5 @@
-import { PolywrapClient } from "@polywrap/client-js";
+import { PolywrapClient, PolywrapClientConfigBuilder } from "@polywrap/client-js";
 import path from "path";
-import { httpPlugin } from "@polywrap/http-plugin-js";
 
 jest.setTimeout(30000);
 
@@ -14,12 +13,11 @@ describe("Graph Node Plugin", () => {
     const absPath: string = path.resolve(wrapperPath);
     uri = `wrap://fs/${absPath}`;
 
-    client = new PolywrapClient({
-      packages: [{
-        uri: "wrap://ens/wraps.eth:http@1.1.0",
-        package: httpPlugin({})
-      }]
-    });
+    const config = new PolywrapClientConfigBuilder()
+      .addDefaults()
+      .build();
+
+    client = new PolywrapClient(config);
   });
 
   test("Query works", async () => {
