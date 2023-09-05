@@ -1,0 +1,11 @@
+#import { Module } into http from "wrap://ens/wraps.eth:http@1.1.0"
+
+type Module {
+  """
+  Query subgraph using endpoint passed in as a url
+  """
+  querySubgraph(
+    url: String!
+    query: String!
+  ): String!
+}
